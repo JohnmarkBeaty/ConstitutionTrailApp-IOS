@@ -7,14 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "WaterCellPhone.h"
-#import "ParkingCellPhone.h"
-#import "RepairCellPhone.h"
-#import "ShopsCellPhone.h"
-#import "ParkCellPhone.h"
-#import "OtherCellPhone.h"
-#import "BenchCellPhone.h"
-#import "AddCellPhone.h"
+#import "CustomTableViewCell.h"
 
 @interface ViewController () <UIGestureRecognizerDelegate> {
     
@@ -118,18 +111,20 @@
 #pragma mark - Tableview Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
+    return 9;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 4) {
-        UITableViewCell *cell = (WaterCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"WaterCellPhone"];
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
         if (!cell) {
-            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"WaterCellPhone" owner:self options:nil];
-            cell = [cells objectAtIndex:0];
+             [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
         }
         cell.backgroundColor = [UIColor clearColor];
-        
+        cell.cellLabel.text = @"water";
+        cell.cellImage.image = [UIImage imageNamed: @"Water.png"];
         UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
         UIImage *backgroundImage = [UIImage imageNamed:@"WaterSelectTransparent.png"];
         backgroundView.image = backgroundImage;
@@ -139,13 +134,15 @@
         return cell;
     }
     if (indexPath.row == 1) {
-        UITableViewCell *cell = (ParkingCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"ParkingCellPhone"];
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
         if (!cell) {
-            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"ParkingCellPhone" owner:self options:nil];
-            cell = [cells objectAtIndex:0];
+            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
         }
         cell.backgroundColor = [UIColor clearColor];
-        
+        cell.cellLabel.text = @"parking";
+        cell.cellImage.image = [UIImage imageNamed: @"Parking.png"];
         UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
         UIImage *backgroundImage = [UIImage imageNamed:@"ParkingSelectTransparent.png"];
         backgroundView.image = backgroundImage;
@@ -155,13 +152,15 @@
         return cell;
     }
     if (indexPath.row == 0) {
-        UITableViewCell *cell = (RepairCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"RepairCellPhone"];
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
         if (!cell) {
-            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"RepairCellPhone" owner:self options:nil];
-            cell = [cells objectAtIndex:0];
+            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
         }
         cell.backgroundColor = [UIColor clearColor];
-        
+        cell.cellLabel.text = @"repair";
+        cell.cellImage.image = [UIImage imageNamed: @"Repairs.png"];
         UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
         UIImage *backgroundImage = [UIImage imageNamed:@"RepairSelectTransparent.png"];
         backgroundView.image = backgroundImage;
@@ -171,13 +170,15 @@
         return cell;
     }
     if (indexPath.row == 2) {
-        UITableViewCell *cell = (ShopsCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"ShopsCellPhone"];
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
         if (!cell) {
-            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"ShopsCellPhone" owner:self options:nil];
-            cell = [cells objectAtIndex:0];
+            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
         }
         cell.backgroundColor = [UIColor clearColor];
-        
+        cell.cellLabel.text = @"shops";
+        cell.cellImage.image = [UIImage imageNamed: @"Shops.png"];
         UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
         UIImage *backgroundImage = [UIImage imageNamed:@"ShopSelectTransparent.png"];
         backgroundView.image = backgroundImage;
@@ -187,13 +188,15 @@
         return cell;
     }
     if (indexPath.row == 3) {
-        UITableViewCell *cell = (ParkCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"ParkCellPhone"];
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
         if (!cell) {
-            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"ParkCellPhone" owner:self options:nil];
-            cell = [cells objectAtIndex:0];
+            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
         }
         cell.backgroundColor = [UIColor clearColor];
-        
+        cell.cellLabel.text = @"parks";
+        cell.cellImage.image = [UIImage imageNamed: @"Park.png"];
         UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
         UIImage *backgroundImage = [UIImage imageNamed:@"ParkSelectTransparent.png"];
         backgroundView.image = backgroundImage;
@@ -203,13 +206,15 @@
         return cell;
     }
     if (indexPath.row == 5) {
-        UITableViewCell *cell = (OtherCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"OtherCellPhone"];
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
         if (!cell) {
-            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"OtherCellPhone" owner:self options:nil];
-            cell = [cells objectAtIndex:0];
+            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
         }
         cell.backgroundColor = [UIColor clearColor];
-        
+        cell.cellLabel.text = @"info";
+        cell.cellImage.image = [UIImage imageNamed: @"Info.png"];
         UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
         UIImage *backgroundImage = [UIImage imageNamed:@"InfoSelectTransparent.png"];
         backgroundView.image = backgroundImage;
@@ -218,33 +223,57 @@
         
         return cell;
     }
-    if (indexPath.row == 6) {
-        UITableViewCell *cell = (BenchCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"BenchCellPhone"];
+    if (indexPath.row == 7) {
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
         if (!cell) {
-            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"BenchCellPhone" owner:self options:nil];
-            cell = [cells objectAtIndex:0];
-            
-            UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-            UIImage *backgroundImage = [UIImage imageNamed:@"BenchSelectTransparent.png"];
-            backgroundView.image = backgroundImage;
-            
-            cell.selectedBackgroundView = backgroundView;
+            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
         }
         cell.backgroundColor = [UIColor clearColor];
+        cell.cellLabel.text = @"bench";
+        cell.cellImage.image = [UIImage imageNamed: @"Bench.png"];
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"BenchSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
+        
+        return cell;
+    }
+    if (indexPath.row == 6) {
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+        if (!cell) {
+            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
+        }
+        cell.backgroundColor = [UIColor clearColor];
+        cell.cellLabel.text = @"trash";
+        cell.cellImage.image = [UIImage imageNamed: @"Trash.png"];
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"TrashSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
+        
         return cell;
     }else{
-        UITableViewCell *cell = (AddCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"AddCellPhone"];
+        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
         if (!cell) {
-            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"AddCellPhone" owner:self options:nil];
-            cell = [cells objectAtIndex:0];
+            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+            cell = _customCell;
+            _customCell = nil;
         }
         cell.backgroundColor = [UIColor clearColor];
-        
+        cell.cellLabel.text = @"custom";
+        cell.cellImage.image = [UIImage imageNamed: @"Add.png"];
         UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
         UIImage *backgroundImage = [UIImage imageNamed:@"AddSelectTransparent.png"];
         backgroundView.image = backgroundImage;
         
         cell.selectedBackgroundView = backgroundView;
+        
         return cell;
     }
     
