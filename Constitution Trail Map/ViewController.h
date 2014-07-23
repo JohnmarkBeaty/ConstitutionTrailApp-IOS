@@ -17,5 +17,7 @@
 @property (nonatomic, weak)IBOutlet UITableViewCell *shopsCell;
 @property (nonatomic, weak)IBOutlet UITableViewCell *parkCell;
 @property (nonatomic, weak)IBOutlet UITableViewCell *otherCell;
+@property (nonatomic, weak)IBOutlet UITableViewCell *benchCell;
+@property (nonatomic, weak)IBOutlet UITableViewCell *addCell;
 
 @end

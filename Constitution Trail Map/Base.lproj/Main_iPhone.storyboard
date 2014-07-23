@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <gestureRecognizers/>
                             </mapView>
-                            <tableView appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kVc-Mh-FpM">
+                            <tableView appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kVc-Mh-FpM">
                                 <rect key="frame" x="320" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,12 +52,12 @@
                                 </connections>
                             </tableView>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0h-Sn-Lok">
-                                <rect key="frame" x="20" y="20" width="46" height="30"/>
-                                <state key="normal" title="Show">
+                                <rect key="frame" x="5" y="11" width="46" height="30"/>
+                                <state key="normal" title="| | |">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showToggles" destination="vXZ-lx-hvc" eventType="touchUpInside" id="T3r-by-yaH"/>
+                                    <action selector="showToggles" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kTD-8V-hf8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,7 +69,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="map" destination="8c9-LN-3IW" id="Dhs-Em-mQj"/>
-                        <outlet property="showMenu" destination="e0h-Sn-Lok" id="0Ku-mc-eFy"/>
                         <outlet property="toggleTable" destination="kVc-Mh-FpM" id="95K-nk-Rsm"/>
                     </connections>
                 </viewController>
