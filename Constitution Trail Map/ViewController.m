@@ -13,6 +13,8 @@
 #import "ShopsCellPhone.h"
 #import "ParkCellPhone.h"
 #import "OtherCellPhone.h"
+#import "BenchCellPhone.h"
+#import "AddCellPhone.h"
 
 @interface ViewController () <UIGestureRecognizerDelegate> {
     
@@ -33,6 +35,8 @@
     
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     _toggleTable.backgroundColor = [UIColor clearColor];
+    
+    [_map setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(40.49509, -88.989156), MKCoordinateSpanMake(.1, .1)) animated:YES];
     
 }
 
@@ -74,17 +78,24 @@
 #pragma mark - Tableview Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
+    if (indexPath.row == 4) {
         UITableViewCell *cell = (WaterCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"WaterCellPhone"];
         if (!cell) {
             NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"WaterCellPhone" owner:self options:nil];
             cell = [cells objectAtIndex:0];
         }
         cell.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"WaterSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
+
         return cell;
     }
     if (indexPath.row == 1) {
@@ -94,41 +105,106 @@
             cell = [cells objectAtIndex:0];
         }
         cell.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"ParkingSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
+        
         return cell;
     }
-    if (indexPath.row == 2) {
+    if (indexPath.row == 0) {
         UITableViewCell *cell = (RepairCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"RepairCellPhone"];
         if (!cell) {
             NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"RepairCellPhone" owner:self options:nil];
             cell = [cells objectAtIndex:0];
         }
         cell.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"RepairSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
+        
         return cell;
     }
-    if (indexPath.row == 3) {
+    if (indexPath.row == 2) {
         UITableViewCell *cell = (ShopsCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"ShopsCellPhone"];
         if (!cell) {
             NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"ShopsCellPhone" owner:self options:nil];
             cell = [cells objectAtIndex:0];
         }
         cell.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"ShopSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
+        
         return cell;
     }
-    if (indexPath.row == 4) {
+    if (indexPath.row == 3) {
         UITableViewCell *cell = (ParkCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"ParkCellPhone"];
         if (!cell) {
             NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"ParkCellPhone" owner:self options:nil];
             cell = [cells objectAtIndex:0];
         }
         cell.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"ParkSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
+        
         return cell;
-    }else{
+    }
+    if (indexPath.row == 5) {
         UITableViewCell *cell = (OtherCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"OtherCellPhone"];
         if (!cell) {
             NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"OtherCellPhone" owner:self options:nil];
             cell = [cells objectAtIndex:0];
         }
         cell.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"InfoSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
+        
+        return cell;
+    }
+    if (indexPath.row == 6) {
+        UITableViewCell *cell = (BenchCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"BenchCellPhone"];
+        if (!cell) {
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"BenchCellPhone" owner:self options:nil];
+            cell = [cells objectAtIndex:0];
+            
+            UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+            UIImage *backgroundImage = [UIImage imageNamed:@"BenchSelectTransparent.png"];
+            backgroundView.image = backgroundImage;
+            
+            cell.selectedBackgroundView = backgroundView;
+        }
+        cell.backgroundColor = [UIColor clearColor];
+        return cell;
+    }else{
+        UITableViewCell *cell = (AddCellPhone *)[tableView dequeueReusableCellWithIdentifier:@"AddCellPhone"];
+        if (!cell) {
+            NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"AddCellPhone" owner:self options:nil];
+            cell = [cells objectAtIndex:0];
+        }
+        cell.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"AddSelectTransparent.png"];
+        backgroundView.image = backgroundImage;
+        
+        cell.selectedBackgroundView = backgroundView;
         return cell;
     }
     
@@ -141,27 +217,19 @@
 #pragma mark - IBActions
 
 - (IBAction)showToggles{
-    BOOL skip = YES;
+    int origin;
+    
     if (_toggleTable.frame.origin.x > 0) {
-        [UIView animateWithDuration:0.3 animations:^{
-            CGRect frame = _toggleTable.frame;
-            frame.origin.x = 0;
-            _toggleTable.frame = frame;
-        }];
-        skip = NO;
-        [_showMenu setTitle:@"Hide" forState:UIControlStateNormal];
+        origin = 0;
+    }else{
+        origin = 320;
     }
     
-    if (_toggleTable.frame.origin.x == 0 && skip) {
-        [UIView animateWithDuration:0.3 animations:^{
-            CGRect frame = _toggleTable.frame;
-            frame.origin.x = 320;
-            _toggleTable.frame = frame;
-        }];
-        [_showMenu setTitle:@"Show" forState:UIControlStateNormal];
-    }
-    skip = YES;
-
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = _toggleTable.frame;
+        frame.origin.x = origin;
+        _toggleTable.frame = frame;
+    }];
 }
 
 @end
