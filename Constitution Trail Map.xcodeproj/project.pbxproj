@@ -7,34 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C5C2A91197F2B12008EF05C /* BenchCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2A8F197F2B12008EF05C /* BenchCellPhone.m */; };
-		2C5C2A92197F2B12008EF05C /* BenchCellPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2A90197F2B12008EF05C /* BenchCellPhone.xib */; };
-		2C5C2A96197F2B24008EF05C /* AddCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C2A94197F2B24008EF05C /* AddCellPhone.m */; };
-		2C5C2A97197F2B24008EF05C /* AddCellPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2A95197F2B24008EF05C /* AddCellPhone.xib */; };
-		2C5C2AA8197F42B1008EF05C /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA0197F42B1008EF05C /* Add.png */; };
-		2C5C2AA9197F42B1008EF05C /* Bench.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA1197F42B1008EF05C /* Bench.png */; };
-		2C5C2AAA197F42B1008EF05C /* Info.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA2197F42B1008EF05C /* Info.png */; };
-		2C5C2AAB197F42B1008EF05C /* Park.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA3197F42B1008EF05C /* Park.png */; };
-		2C5C2AAC197F42B1008EF05C /* Parking.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA4197F42B1008EF05C /* Parking.png */; };
-		2C5C2AAD197F42B1008EF05C /* Repairs.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA5197F42B1008EF05C /* Repairs.png */; };
-		2C5C2AAE197F42B1008EF05C /* Shops.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA6197F42B1008EF05C /* Shops.png */; };
-		2C5C2AAF197F42B1008EF05C /* Water.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA7197F42B1008EF05C /* Water.png */; };
-		2C685E16197F5557005D8A87 /* AddSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E14197F5557005D8A87 /* AddSelectSolid.png */; };
-		2C685E17197F5557005D8A87 /* AddSelectTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E15197F5557005D8A87 /* AddSelectTransparent.png */; };
-		2C685E1A197F557B005D8A87 /* BenchSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E18197F557B005D8A87 /* BenchSelectSolid.png */; };
-		2C685E1B197F557B005D8A87 /* BenchSelectTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E19197F557B005D8A87 /* BenchSelectTransparent.png */; };
-		2C685E1E197F5585005D8A87 /* InfoSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E1C197F5585005D8A87 /* InfoSelectSolid.png */; };
-		2C685E1F197F5585005D8A87 /* InfoSelectTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E1D197F5585005D8A87 /* InfoSelectTransparent.png */; };
-		2C685E22197F5593005D8A87 /* ParkSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E20197F5593005D8A87 /* ParkSelectSolid.png */; };
-		2C685E23197F5593005D8A87 /* ParkSelectTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E21197F5593005D8A87 /* ParkSelectTransparent.png */; };
-		2C685E26197F55B3005D8A87 /* ParkingSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E24197F55B3005D8A87 /* ParkingSelectSolid.png */; };
-		2C685E27197F55B3005D8A87 /* ParkingSelectTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E25197F55B3005D8A87 /* ParkingSelectTransparent.png */; };
-		2C685E2A197F55BD005D8A87 /* RepairSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E28197F55BD005D8A87 /* RepairSelectSolid.png */; };
-		2C685E2B197F55BD005D8A87 /* RepairSelectTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E29197F55BD005D8A87 /* RepairSelectTransparent.png */; };
-		2C685E2E197F55C6005D8A87 /* ShopSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E2C197F55C6005D8A87 /* ShopSelectSolid.png */; };
-		2C685E2F197F55C6005D8A87 /* ShopSelectTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E2D197F55C6005D8A87 /* ShopSelectTransparent.png */; };
-		2C685E32197F55CD005D8A87 /* WaterSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E30197F55CD005D8A87 /* WaterSelectSolid.png */; };
-		2C685E33197F55CD005D8A87 /* WaterSelectTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685E31197F55CD005D8A87 /* WaterSelectTransparent.png */; };
+		2C03D34D19D22FF800B465E4 /* LeftEdgeGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C03D34B19D22FF800B465E4 /* LeftEdgeGradient.png */; };
+		2C03D35019D2301500B465E4 /* RightEdgeGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C03D34F19D2301500B465E4 /* RightEdgeGradient.png */; };
+		2C28C80C197FC4E6006D1F29 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C28C80A197FC4E6006D1F29 /* CustomTableViewCell.m */; };
+		2C28C80D197FC4E6006D1F29 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C28C80B197FC4E6006D1F29 /* CustomTableViewCell.xib */; };
+		2C5C2AA8197F42B1008EF05C /* custom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA0197F42B1008EF05C /* custom.png */; };
+		2C5C2AA9197F42B1008EF05C /* bench.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA1197F42B1008EF05C /* bench.png */; };
+		2C5C2AAA197F42B1008EF05C /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA2197F42B1008EF05C /* info.png */; };
+		2C5C2AAB197F42B1008EF05C /* park.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA3197F42B1008EF05C /* park.png */; };
+		2C5C2AAC197F42B1008EF05C /* parking.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA4197F42B1008EF05C /* parking.png */; };
+		2C5C2AAD197F42B1008EF05C /* repair.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA5197F42B1008EF05C /* repair.png */; };
+		2C5C2AAF197F42B1008EF05C /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C2AA7197F42B1008EF05C /* water.png */; };
+		2C5CDB1F19DF982600F628B2 /* customSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1619DF982600F628B2 /* customSelectSolid.png */; };
+		2C5CDB2019DF982600F628B2 /* benchSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1719DF982600F628B2 /* benchSelectSolid.png */; };
+		2C5CDB2119DF982600F628B2 /* infoSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1819DF982600F628B2 /* infoSelectSolid.png */; };
+		2C5CDB2219DF982600F628B2 /* parkingSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1919DF982600F628B2 /* parkingSelectSolid.png */; };
+		2C5CDB2319DF982600F628B2 /* parkSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1A19DF982600F628B2 /* parkSelectSolid.png */; };
+		2C5CDB2419DF982600F628B2 /* repairSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1B19DF982600F628B2 /* repairSelectSolid.png */; };
+		2C5CDB2519DF982600F628B2 /* restroomsSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1C19DF982600F628B2 /* restroomsSelectSolid.png */; };
+		2C5CDB2619DF982600F628B2 /* trashSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1D19DF982600F628B2 /* trashSelectSolid.png */; };
+		2C5CDB2719DF982600F628B2 /* waterSelectSolid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CDB1E19DF982600F628B2 /* waterSelectSolid.png */; };
+		2C7A4C0119D7ABA200B55FF9 /* UIImage+ImageCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A4C0019D7ABA200B55FF9 /* UIImage+ImageCategory.m */; };
+		2C9FA31119CD698800C1D448 /* restrooms.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9FA31019CD698800C1D448 /* restrooms.png */; };
+		2CB2A4E81992839B00200AAF /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB2A4E71992839B00200AAF /* SettingsTableViewController.m */; };
+		2CC314FC197FC1C3002079D5 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC314FB197FC1C3002079D5 /* trash.png */; };
+		2CDF13B71985B7B700C0B50A /* Add Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13AE1985B7B700C0B50A /* Add Small.png */; };
+		2CDF13B81985B7B700C0B50A /* Bench Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13AF1985B7B700C0B50A /* Bench Small.png */; };
+		2CDF13B91985B7B700C0B50A /* Info Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13B01985B7B700C0B50A /* Info Small.png */; };
+		2CDF13BA1985B7B700C0B50A /* Park Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13B11985B7B700C0B50A /* Park Small.png */; };
+		2CDF13BB1985B7B700C0B50A /* Parking Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13B21985B7B700C0B50A /* Parking Small.png */; };
+		2CDF13BC1985B7B700C0B50A /* Repairs Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13B31985B7B700C0B50A /* Repairs Small.png */; };
+		2CDF13BD1985B7B700C0B50A /* Shops Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13B41985B7B700C0B50A /* Shops Small.png */; };
+		2CDF13BE1985B7B700C0B50A /* Trash Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13B51985B7B700C0B50A /* Trash Small.png */; };
+		2CDF13BF1985B7B700C0B50A /* Water Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF13B61985B7B700C0B50A /* Water Small.png */; };
 		2CF880EC1962377700C36114 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF880EB1962377700C36114 /* Foundation.framework */; };
 		2CF880EE1962377700C36114 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF880ED1962377700C36114 /* CoreGraphics.framework */; };
 		2CF880F01962377700C36114 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF880EF1962377700C36114 /* UIKit.framework */; };
@@ -51,18 +56,6 @@
 		2CF881181962377700C36114 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CF881161962377700C36114 /* InfoPlist.strings */; };
 		2CF8811A1962377700C36114 /* Constitution_Trail_MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF881191962377700C36114 /* Constitution_Trail_MapTests.m */; };
 		2CF88124196237E700C36114 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF88123196237E700C36114 /* MapKit.framework */; };
-		2CF8812A19623C1A00C36114 /* WaterCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8812819623C1A00C36114 /* WaterCellPhone.m */; };
-		2CF8812B19623C1A00C36114 /* WaterCellPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8812919623C1A00C36114 /* WaterCellPhone.xib */; };
-		2CF8813F19623F7400C36114 /* ParkingCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8813D19623F7400C36114 /* ParkingCellPhone.m */; };
-		2CF8814019623F7400C36114 /* ParkingCellPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8813E19623F7400C36114 /* ParkingCellPhone.xib */; };
-		2CF8814419623FFE00C36114 /* RepairCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8814219623FFE00C36114 /* RepairCellPhone.m */; };
-		2CF8814519623FFE00C36114 /* RepairCellPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8814319623FFE00C36114 /* RepairCellPhone.xib */; };
-		2CF88149196240BA00C36114 /* ShopsCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF88147196240BA00C36114 /* ShopsCellPhone.m */; };
-		2CF8814A196240BA00C36114 /* ShopsCellPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF88148196240BA00C36114 /* ShopsCellPhone.xib */; };
-		2CF8814E1962411900C36114 /* ParkCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8814C1962411900C36114 /* ParkCellPhone.m */; };
-		2CF8814F1962411900C36114 /* ParkCellPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8814D1962411900C36114 /* ParkCellPhone.xib */; };
-		2CF881531962417300C36114 /* OtherCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF881511962417300C36114 /* OtherCellPhone.m */; };
-		2CF881541962417300C36114 /* OtherCellPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF881521962417300C36114 /* OtherCellPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,36 +69,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C5C2A8E197F2B12008EF05C /* BenchCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BenchCellPhone.h; path = ../BenchCellPhone.h; sourceTree = "<group>"; };
-		2C5C2A8F197F2B12008EF05C /* BenchCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BenchCellPhone.m; path = ../BenchCellPhone.m; sourceTree = "<group>"; };
-		2C5C2A90197F2B12008EF05C /* BenchCellPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BenchCellPhone.xib; path = ../BenchCellPhone.xib; sourceTree = "<group>"; };
-		2C5C2A93197F2B24008EF05C /* AddCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCellPhone.h; path = ../../AddCellPhone.h; sourceTree = "<group>"; };
-		2C5C2A94197F2B24008EF05C /* AddCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCellPhone.m; path = ../../AddCellPhone.m; sourceTree = "<group>"; };
-		2C5C2A95197F2B24008EF05C /* AddCellPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddCellPhone.xib; path = ../../AddCellPhone.xib; sourceTree = "<group>"; };
-		2C5C2AA0197F42B1008EF05C /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Add.png; sourceTree = "<group>"; };
-		2C5C2AA1197F42B1008EF05C /* Bench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bench.png; sourceTree = "<group>"; };
-		2C5C2AA2197F42B1008EF05C /* Info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Info.png; sourceTree = "<group>"; };
-		2C5C2AA3197F42B1008EF05C /* Park.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Park.png; sourceTree = "<group>"; };
-		2C5C2AA4197F42B1008EF05C /* Parking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Parking.png; sourceTree = "<group>"; };
-		2C5C2AA5197F42B1008EF05C /* Repairs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Repairs.png; sourceTree = "<group>"; };
-		2C5C2AA6197F42B1008EF05C /* Shops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shops.png; sourceTree = "<group>"; };
-		2C5C2AA7197F42B1008EF05C /* Water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Water.png; sourceTree = "<group>"; };
-		2C685E14197F5557005D8A87 /* AddSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddSelectSolid.png; sourceTree = "<group>"; };
-		2C685E15197F5557005D8A87 /* AddSelectTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddSelectTransparent.png; sourceTree = "<group>"; };
-		2C685E18197F557B005D8A87 /* BenchSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BenchSelectSolid.png; sourceTree = "<group>"; };
-		2C685E19197F557B005D8A87 /* BenchSelectTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BenchSelectTransparent.png; sourceTree = "<group>"; };
-		2C685E1C197F5585005D8A87 /* InfoSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoSelectSolid.png; sourceTree = "<group>"; };
-		2C685E1D197F5585005D8A87 /* InfoSelectTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoSelectTransparent.png; sourceTree = "<group>"; };
-		2C685E20197F5593005D8A87 /* ParkSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ParkSelectSolid.png; sourceTree = "<group>"; };
-		2C685E21197F5593005D8A87 /* ParkSelectTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ParkSelectTransparent.png; sourceTree = "<group>"; };
-		2C685E24197F55B3005D8A87 /* ParkingSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ParkingSelectSolid.png; sourceTree = "<group>"; };
-		2C685E25197F55B3005D8A87 /* ParkingSelectTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ParkingSelectTransparent.png; sourceTree = "<group>"; };
-		2C685E28197F55BD005D8A87 /* RepairSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RepairSelectSolid.png; sourceTree = "<group>"; };
-		2C685E29197F55BD005D8A87 /* RepairSelectTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RepairSelectTransparent.png; sourceTree = "<group>"; };
-		2C685E2C197F55C6005D8A87 /* ShopSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShopSelectSolid.png; sourceTree = "<group>"; };
-		2C685E2D197F55C6005D8A87 /* ShopSelectTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShopSelectTransparent.png; sourceTree = "<group>"; };
-		2C685E30197F55CD005D8A87 /* WaterSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaterSelectSolid.png; sourceTree = "<group>"; };
-		2C685E31197F55CD005D8A87 /* WaterSelectTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaterSelectTransparent.png; sourceTree = "<group>"; };
+		2C03D34B19D22FF800B465E4 /* LeftEdgeGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftEdgeGradient.png; sourceTree = "<group>"; };
+		2C03D34F19D2301500B465E4 /* RightEdgeGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RightEdgeGradient.png; sourceTree = "<group>"; };
+		2C28C809197FC4E6006D1F29 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		2C28C80A197FC4E6006D1F29 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		2C28C80B197FC4E6006D1F29 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		2C5C2AA0197F42B1008EF05C /* custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom.png; sourceTree = "<group>"; };
+		2C5C2AA1197F42B1008EF05C /* bench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bench.png; sourceTree = "<group>"; };
+		2C5C2AA2197F42B1008EF05C /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		2C5C2AA3197F42B1008EF05C /* park.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = park.png; sourceTree = "<group>"; };
+		2C5C2AA4197F42B1008EF05C /* parking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parking.png; sourceTree = "<group>"; };
+		2C5C2AA5197F42B1008EF05C /* repair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repair.png; sourceTree = "<group>"; };
+		2C5C2AA7197F42B1008EF05C /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		2C5CDB1619DF982600F628B2 /* customSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customSelectSolid.png; sourceTree = "<group>"; };
+		2C5CDB1719DF982600F628B2 /* benchSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = benchSelectSolid.png; sourceTree = "<group>"; };
+		2C5CDB1819DF982600F628B2 /* infoSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoSelectSolid.png; sourceTree = "<group>"; };
+		2C5CDB1919DF982600F628B2 /* parkingSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parkingSelectSolid.png; sourceTree = "<group>"; };
+		2C5CDB1A19DF982600F628B2 /* parkSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parkSelectSolid.png; sourceTree = "<group>"; };
+		2C5CDB1B19DF982600F628B2 /* repairSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repairSelectSolid.png; sourceTree = "<group>"; };
+		2C5CDB1C19DF982600F628B2 /* restroomsSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restroomsSelectSolid.png; sourceTree = "<group>"; };
+		2C5CDB1D19DF982600F628B2 /* trashSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trashSelectSolid.png; sourceTree = "<group>"; };
+		2C5CDB1E19DF982600F628B2 /* waterSelectSolid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterSelectSolid.png; sourceTree = "<group>"; };
+		2C7A4BFF19D7ABA200B55FF9 /* UIImage+ImageCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageCategory.h"; path = "../UIImage+ImageCategory.h"; sourceTree = "<group>"; };
+		2C7A4C0019D7ABA200B55FF9 /* UIImage+ImageCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageCategory.m"; path = "../UIImage+ImageCategory.m"; sourceTree = "<group>"; };
+		2C9FA31019CD698800C1D448 /* restrooms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restrooms.png; sourceTree = "<group>"; };
+		2CB2A4E61992839B00200AAF /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsTableViewController.h; path = ../SettingsTableViewController.h; sourceTree = "<group>"; };
+		2CB2A4E71992839B00200AAF /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsTableViewController.m; path = ../SettingsTableViewController.m; sourceTree = "<group>"; };
+		2CC314FB197FC1C3002079D5 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
+		2CDF13AE1985B7B700C0B50A /* Add Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add Small.png"; sourceTree = "<group>"; };
+		2CDF13AF1985B7B700C0B50A /* Bench Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bench Small.png"; sourceTree = "<group>"; };
+		2CDF13B01985B7B700C0B50A /* Info Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info Small.png"; sourceTree = "<group>"; };
+		2CDF13B11985B7B700C0B50A /* Park Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Park Small.png"; sourceTree = "<group>"; };
+		2CDF13B21985B7B700C0B50A /* Parking Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Parking Small.png"; sourceTree = "<group>"; };
+		2CDF13B31985B7B700C0B50A /* Repairs Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Repairs Small.png"; sourceTree = "<group>"; };
+		2CDF13B41985B7B700C0B50A /* Shops Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shops Small.png"; sourceTree = "<group>"; };
+		2CDF13B51985B7B700C0B50A /* Trash Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Trash Small.png"; sourceTree = "<group>"; };
+		2CDF13B61985B7B700C0B50A /* Water Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Water Small.png"; sourceTree = "<group>"; };
 		2CF880E81962377700C36114 /* Constitution Trail Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Constitution Trail Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF880EB1962377700C36114 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2CF880ED1962377700C36114 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,24 +126,6 @@
 		2CF881171962377700C36114 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CF881191962377700C36114 /* Constitution_Trail_MapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constitution_Trail_MapTests.m; sourceTree = "<group>"; };
 		2CF88123196237E700C36114 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2CF8812719623C1A00C36114 /* WaterCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterCellPhone.h; path = ../WaterCellPhone.h; sourceTree = "<group>"; };
-		2CF8812819623C1A00C36114 /* WaterCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterCellPhone.m; path = ../WaterCellPhone.m; sourceTree = "<group>"; };
-		2CF8812919623C1A00C36114 /* WaterCellPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WaterCellPhone.xib; path = ../WaterCellPhone.xib; sourceTree = "<group>"; };
-		2CF8813C19623F7400C36114 /* ParkingCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingCellPhone.h; sourceTree = "<group>"; };
-		2CF8813D19623F7400C36114 /* ParkingCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingCellPhone.m; sourceTree = "<group>"; };
-		2CF8813E19623F7400C36114 /* ParkingCellPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkingCellPhone.xib; sourceTree = "<group>"; };
-		2CF8814119623FFE00C36114 /* RepairCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepairCellPhone.h; sourceTree = "<group>"; };
-		2CF8814219623FFE00C36114 /* RepairCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepairCellPhone.m; sourceTree = "<group>"; };
-		2CF8814319623FFE00C36114 /* RepairCellPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepairCellPhone.xib; sourceTree = "<group>"; };
-		2CF88146196240BA00C36114 /* ShopsCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopsCellPhone.h; sourceTree = "<group>"; };
-		2CF88147196240BA00C36114 /* ShopsCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopsCellPhone.m; sourceTree = "<group>"; };
-		2CF88148196240BA00C36114 /* ShopsCellPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopsCellPhone.xib; sourceTree = "<group>"; };
-		2CF8814B1962411800C36114 /* ParkCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkCellPhone.h; sourceTree = "<group>"; };
-		2CF8814C1962411900C36114 /* ParkCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkCellPhone.m; sourceTree = "<group>"; };
-		2CF8814D1962411900C36114 /* ParkCellPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkCellPhone.xib; sourceTree = "<group>"; };
-		2CF881501962417300C36114 /* OtherCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherCellPhone.h; sourceTree = "<group>"; };
-		2CF881511962417300C36114 /* OtherCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherCellPhone.m; sourceTree = "<group>"; };
-		2CF881521962417300C36114 /* OtherCellPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherCellPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +153,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C1F5C2F1982B96B0090A676 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				2C03D34B19D22FF800B465E4 /* LeftEdgeGradient.png */,
+				2C03D34F19D2301500B465E4 /* RightEdgeGradient.png */,
+				2C5CDB1619DF982600F628B2 /* customSelectSolid.png */,
+				2C5CDB1719DF982600F628B2 /* benchSelectSolid.png */,
+				2C5CDB1819DF982600F628B2 /* infoSelectSolid.png */,
+				2C5CDB1919DF982600F628B2 /* parkingSelectSolid.png */,
+				2C5CDB1A19DF982600F628B2 /* parkSelectSolid.png */,
+				2C5CDB1B19DF982600F628B2 /* repairSelectSolid.png */,
+				2C5CDB1C19DF982600F628B2 /* restroomsSelectSolid.png */,
+				2C5CDB1D19DF982600F628B2 /* trashSelectSolid.png */,
+				2C5CDB1E19DF982600F628B2 /* waterSelectSolid.png */,
+				2C5C2AA0197F42B1008EF05C /* custom.png */,
+				2C5C2AA1197F42B1008EF05C /* bench.png */,
+				2C5C2AA2197F42B1008EF05C /* info.png */,
+				2C5C2AA3197F42B1008EF05C /* park.png */,
+				2C5C2AA4197F42B1008EF05C /* parking.png */,
+				2C5C2AA5197F42B1008EF05C /* repair.png */,
+				2C9FA31019CD698800C1D448 /* restrooms.png */,
+				2CC314FB197FC1C3002079D5 /* trash.png */,
+				2C5C2AA7197F42B1008EF05C /* water.png */,
+				2CDF13AE1985B7B700C0B50A /* Add Small.png */,
+				2CDF13AF1985B7B700C0B50A /* Bench Small.png */,
+				2CDF13B01985B7B700C0B50A /* Info Small.png */,
+				2CDF13B11985B7B700C0B50A /* Park Small.png */,
+				2CDF13B21985B7B700C0B50A /* Parking Small.png */,
+				2CDF13B31985B7B700C0B50A /* Repairs Small.png */,
+				2CDF13B41985B7B700C0B50A /* Shops Small.png */,
+				2CDF13B51985B7B700C0B50A /* Trash Small.png */,
+				2CDF13B61985B7B700C0B50A /* Water Small.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
 		2CF880DF1962377700C36114 = {
 			isa = PBXGroup;
 			children = (
@@ -212,32 +229,16 @@
 				2CF881001962377700C36114 /* Main_iPad.storyboard */,
 				2CF881031962377700C36114 /* ViewController.h */,
 				2CF881041962377700C36114 /* ViewController.m */,
+				2CB2A4E61992839B00200AAF /* SettingsTableViewController.h */,
+				2CB2A4E71992839B00200AAF /* SettingsTableViewController.m */,
+				2C28C809197FC4E6006D1F29 /* CustomTableViewCell.h */,
+				2C28C80A197FC4E6006D1F29 /* CustomTableViewCell.m */,
+				2C28C80B197FC4E6006D1F29 /* CustomTableViewCell.xib */,
+				2C7A4BFF19D7ABA200B55FF9 /* UIImage+ImageCategory.h */,
+				2C7A4C0019D7ABA200B55FF9 /* UIImage+ImageCategory.m */,
 				2CF8813119623C9500C36114 /* Cells */,
 				2CF881061962377700C36114 /* Images.xcassets */,
-				2C5C2AA0197F42B1008EF05C /* Add.png */,
-				2C685E14197F5557005D8A87 /* AddSelectSolid.png */,
-				2C685E15197F5557005D8A87 /* AddSelectTransparent.png */,
-				2C5C2AA1197F42B1008EF05C /* Bench.png */,
-				2C685E18197F557B005D8A87 /* BenchSelectSolid.png */,
-				2C685E19197F557B005D8A87 /* BenchSelectTransparent.png */,
-				2C5C2AA2197F42B1008EF05C /* Info.png */,
-				2C685E1C197F5585005D8A87 /* InfoSelectSolid.png */,
-				2C685E1D197F5585005D8A87 /* InfoSelectTransparent.png */,
-				2C5C2AA3197F42B1008EF05C /* Park.png */,
-				2C685E20197F5593005D8A87 /* ParkSelectSolid.png */,
-				2C685E21197F5593005D8A87 /* ParkSelectTransparent.png */,
-				2C5C2AA4197F42B1008EF05C /* Parking.png */,
-				2C685E24197F55B3005D8A87 /* ParkingSelectSolid.png */,
-				2C685E25197F55B3005D8A87 /* ParkingSelectTransparent.png */,
-				2C5C2AA5197F42B1008EF05C /* Repairs.png */,
-				2C685E28197F55BD005D8A87 /* RepairSelectSolid.png */,
-				2C685E29197F55BD005D8A87 /* RepairSelectTransparent.png */,
-				2C5C2AA6197F42B1008EF05C /* Shops.png */,
-				2C685E2C197F55C6005D8A87 /* ShopSelectSolid.png */,
-				2C685E2D197F55C6005D8A87 /* ShopSelectTransparent.png */,
-				2C5C2AA7197F42B1008EF05C /* Water.png */,
-				2C685E30197F55CD005D8A87 /* WaterSelectSolid.png */,
-				2C685E31197F55CD005D8A87 /* WaterSelectTransparent.png */,
+				2C1F5C2F1982B96B0090A676 /* Graphics */,
 				2CF880F21962377700C36114 /* Supporting Files */,
 			);
 			path = "Constitution Trail Map";
@@ -275,30 +276,6 @@
 		2CF8813119623C9500C36114 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2CF8812719623C1A00C36114 /* WaterCellPhone.h */,
-				2CF8812819623C1A00C36114 /* WaterCellPhone.m */,
-				2CF8812919623C1A00C36114 /* WaterCellPhone.xib */,
-				2CF8813C19623F7400C36114 /* ParkingCellPhone.h */,
-				2CF8813D19623F7400C36114 /* ParkingCellPhone.m */,
-				2CF8813E19623F7400C36114 /* ParkingCellPhone.xib */,
-				2CF8814119623FFE00C36114 /* RepairCellPhone.h */,
-				2CF8814219623FFE00C36114 /* RepairCellPhone.m */,
-				2CF8814319623FFE00C36114 /* RepairCellPhone.xib */,
-				2CF88146196240BA00C36114 /* ShopsCellPhone.h */,
-				2CF88147196240BA00C36114 /* ShopsCellPhone.m */,
-				2CF88148196240BA00C36114 /* ShopsCellPhone.xib */,
-				2CF8814B1962411800C36114 /* ParkCellPhone.h */,
-				2CF8814C1962411900C36114 /* ParkCellPhone.m */,
-				2CF8814D1962411900C36114 /* ParkCellPhone.xib */,
-				2CF881501962417300C36114 /* OtherCellPhone.h */,
-				2CF881511962417300C36114 /* OtherCellPhone.m */,
-				2CF881521962417300C36114 /* OtherCellPhone.xib */,
-				2C5C2A8E197F2B12008EF05C /* BenchCellPhone.h */,
-				2C5C2A8F197F2B12008EF05C /* BenchCellPhone.m */,
-				2C5C2A90197F2B12008EF05C /* BenchCellPhone.xib */,
-				2C5C2A93197F2B24008EF05C /* AddCellPhone.h */,
-				2C5C2A94197F2B24008EF05C /* AddCellPhone.m */,
-				2C5C2A95197F2B24008EF05C /* AddCellPhone.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -350,6 +327,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Eddie Koranek";
 				TargetAttributes = {
+					2CF880E71962377700C36114 = {
+						DevelopmentTeam = 7M4W2Y3X7H;
+					};
 					2CF8810B1962377700C36114 = {
 						TestTargetID = 2CF880E71962377700C36114;
 					};
@@ -379,42 +359,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C685E2F197F55C6005D8A87 /* ShopSelectTransparent.png in Resources */,
+				2C5CDB2519DF982600F628B2 /* restroomsSelectSolid.png in Resources */,
+				2CDF13BB1985B7B700C0B50A /* Parking Small.png in Resources */,
 				2CF881021962377700C36114 /* Main_iPad.storyboard in Resources */,
-				2CF8812B19623C1A00C36114 /* WaterCellPhone.xib in Resources */,
+				2C28C80D197FC4E6006D1F29 /* CustomTableViewCell.xib in Resources */,
+				2CDF13BD1985B7B700C0B50A /* Shops Small.png in Resources */,
+				2C5CDB2719DF982600F628B2 /* waterSelectSolid.png in Resources */,
 				2CF881071962377700C36114 /* Images.xcassets in Resources */,
-				2C685E2B197F55BD005D8A87 /* RepairSelectTransparent.png in Resources */,
-				2CF8814019623F7400C36114 /* ParkingCellPhone.xib in Resources */,
-				2C685E32197F55CD005D8A87 /* WaterSelectSolid.png in Resources */,
-				2C5C2A97197F2B24008EF05C /* AddCellPhone.xib in Resources */,
-				2C5C2AA8197F42B1008EF05C /* Add.png in Resources */,
-				2CF8814A196240BA00C36114 /* ShopsCellPhone.xib in Resources */,
-				2C685E33197F55CD005D8A87 /* WaterSelectTransparent.png in Resources */,
+				2C5CDB1F19DF982600F628B2 /* customSelectSolid.png in Resources */,
+				2CDF13B91985B7B700C0B50A /* Info Small.png in Resources */,
+				2C5C2AA8197F42B1008EF05C /* custom.png in Resources */,
+				2C5CDB2019DF982600F628B2 /* benchSelectSolid.png in Resources */,
+				2CDF13BF1985B7B700C0B50A /* Water Small.png in Resources */,
+				2C03D35019D2301500B465E4 /* RightEdgeGradient.png in Resources */,
 				2CF880FF1962377700C36114 /* Main_iPhone.storyboard in Resources */,
-				2C5C2AAD197F42B1008EF05C /* Repairs.png in Resources */,
-				2C5C2AAC197F42B1008EF05C /* Parking.png in Resources */,
+				2C5C2AAD197F42B1008EF05C /* repair.png in Resources */,
+				2C5C2AAC197F42B1008EF05C /* parking.png in Resources */,
 				2CF880F61962377700C36114 /* InfoPlist.strings in Resources */,
-				2C5C2AAF197F42B1008EF05C /* Water.png in Resources */,
-				2C5C2AAB197F42B1008EF05C /* Park.png in Resources */,
-				2CF8814519623FFE00C36114 /* RepairCellPhone.xib in Resources */,
-				2C5C2AA9197F42B1008EF05C /* Bench.png in Resources */,
-				2C685E22197F5593005D8A87 /* ParkSelectSolid.png in Resources */,
-				2C685E23197F5593005D8A87 /* ParkSelectTransparent.png in Resources */,
-				2C5C2AAE197F42B1008EF05C /* Shops.png in Resources */,
-				2C685E26197F55B3005D8A87 /* ParkingSelectSolid.png in Resources */,
-				2C685E1A197F557B005D8A87 /* BenchSelectSolid.png in Resources */,
-				2C5C2A92197F2B12008EF05C /* BenchCellPhone.xib in Resources */,
-				2C5C2AAA197F42B1008EF05C /* Info.png in Resources */,
-				2C685E17197F5557005D8A87 /* AddSelectTransparent.png in Resources */,
-				2C685E27197F55B3005D8A87 /* ParkingSelectTransparent.png in Resources */,
-				2C685E1E197F5585005D8A87 /* InfoSelectSolid.png in Resources */,
-				2C685E16197F5557005D8A87 /* AddSelectSolid.png in Resources */,
-				2C685E1F197F5585005D8A87 /* InfoSelectTransparent.png in Resources */,
-				2CF8814F1962411900C36114 /* ParkCellPhone.xib in Resources */,
-				2C685E2A197F55BD005D8A87 /* RepairSelectSolid.png in Resources */,
-				2CF881541962417300C36114 /* OtherCellPhone.xib in Resources */,
-				2C685E1B197F557B005D8A87 /* BenchSelectTransparent.png in Resources */,
-				2C685E2E197F55C6005D8A87 /* ShopSelectSolid.png in Resources */,
+				2C5C2AAF197F42B1008EF05C /* water.png in Resources */,
+				2C5C2AAB197F42B1008EF05C /* park.png in Resources */,
+				2CC314FC197FC1C3002079D5 /* trash.png in Resources */,
+				2C5CDB2219DF982600F628B2 /* parkingSelectSolid.png in Resources */,
+				2C03D34D19D22FF800B465E4 /* LeftEdgeGradient.png in Resources */,
+				2C5C2AA9197F42B1008EF05C /* bench.png in Resources */,
+				2CDF13B71985B7B700C0B50A /* Add Small.png in Resources */,
+				2CDF13BA1985B7B700C0B50A /* Park Small.png in Resources */,
+				2CDF13BC1985B7B700C0B50A /* Repairs Small.png in Resources */,
+				2C5C2AAA197F42B1008EF05C /* info.png in Resources */,
+				2CDF13B81985B7B700C0B50A /* Bench Small.png in Resources */,
+				2C5CDB2119DF982600F628B2 /* infoSelectSolid.png in Resources */,
+				2C5CDB2319DF982600F628B2 /* parkSelectSolid.png in Resources */,
+				2C5CDB2419DF982600F628B2 /* repairSelectSolid.png in Resources */,
+				2C9FA31119CD698800C1D448 /* restrooms.png in Resources */,
+				2CDF13BE1985B7B700C0B50A /* Trash Small.png in Resources */,
+				2C5CDB2619DF982600F628B2 /* trashSelectSolid.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,17 +411,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CF8812A19623C1A00C36114 /* WaterCellPhone.m in Sources */,
-				2CF8814419623FFE00C36114 /* RepairCellPhone.m in Sources */,
-				2CF8814E1962411900C36114 /* ParkCellPhone.m in Sources */,
-				2C5C2A91197F2B12008EF05C /* BenchCellPhone.m in Sources */,
-				2CF8813F19623F7400C36114 /* ParkingCellPhone.m in Sources */,
-				2CF88149196240BA00C36114 /* ShopsCellPhone.m in Sources */,
+				2CB2A4E81992839B00200AAF /* SettingsTableViewController.m in Sources */,
+				2C7A4C0119D7ABA200B55FF9 /* UIImage+ImageCategory.m in Sources */,
 				2CF881051962377700C36114 /* ViewController.m in Sources */,
-				2C5C2A96197F2B24008EF05C /* AddCellPhone.m in Sources */,
 				2CF880FC1962377700C36114 /* AppDelegate.m in Sources */,
 				2CF880F81962377700C36114 /* main.m in Sources */,
-				2CF881531962417300C36114 /* OtherCellPhone.m in Sources */,
+				2C28C80C197FC4E6006D1F29 /* CustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,10 +551,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Constitution Trail Map/Constitution Trail Map-Prefix.pch";
 				INFOPLIST_FILE = "Constitution Trail Map/Constitution Trail Map-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -591,10 +568,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Constitution Trail Map/Constitution Trail Map-Prefix.pch";
 				INFOPLIST_FILE = "Constitution Trail Map/Constitution Trail Map-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

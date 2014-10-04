@@ -8,16 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "CustomTableViewCell.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>
 
-@property (nonatomic, weak)IBOutlet UITableViewCell *waterCell;
-@property (nonatomic, weak)IBOutlet UITableViewCell *parkingCell;
-@property (nonatomic, weak)IBOutlet UITableViewCell *repairCell;
-@property (nonatomic, weak)IBOutlet UITableViewCell *shopsCell;
-@property (nonatomic, weak)IBOutlet UITableViewCell *parkCell;
-@property (nonatomic, weak)IBOutlet UITableViewCell *otherCell;
-@property (nonatomic, weak)IBOutlet UITableViewCell *benchCell;
-@property (nonatomic, weak)IBOutlet UITableViewCell *addCell;
+@property (nonatomic, weak)IBOutlet CustomTableViewCell *customCell;
 
 @end
