@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)setPreference:(id)preference forKey:(NSString *)key;
+- (id)preferenceForKey:(NSString *)key;
+
 @end

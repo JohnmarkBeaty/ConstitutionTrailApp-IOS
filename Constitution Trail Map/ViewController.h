@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "CustomTableViewCell.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, weak)IBOutlet CustomTableViewCell *customCell;
 

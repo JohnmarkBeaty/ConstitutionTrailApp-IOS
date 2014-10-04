@@ -8,69 +8,168 @@
 
 #import "ViewController.h"
 #import "CustomTableViewCell.h"
+#import "AppDelegate.h"
+#import "UIImage+ImageCategory.h"
 
 @interface ViewController () <UIGestureRecognizerDelegate> {
     
 }
 
-@property (nonatomic, weak)IBOutlet UITableView *toggleTable;
-@property (nonatomic, weak)IBOutlet MKMapView *map;
-@property (nonatomic, weak)IBOutlet UIButton *showMenu;
-@property (nonatomic, strong)NSMutableArray *finalCoords;
-@property (nonatomic, strong)NSMutableArray *cords;
+@property (nonatomic, weak)IBOutlet MKMapView *map; //Map centered on Bloomington Normal. Background of main ViewController
+@property (nonatomic, weak)IBOutlet UITableView *toggleTable; //Table of Hexagon toggles. Right side of main ViewController
+@property (nonatomic, weak)IBOutlet UIView *settingsView; //View with settings. Left side of main ViewController
 
+@property (nonatomic, weak)IBOutlet UISwitch *solidColorToggle; //Set cell selected image opacity to 100% (non functioning)
+@property (nonatomic, weak)IBOutlet UISwitch *locationToggle; //Show or hide user location (non functioning)
+
+@property (nonatomic, weak)IBOutlet UIView *holdControls; //View contating showMenu & showSettings buttons. Simplifies animations
+@property (nonatomic, weak)IBOutlet UIButton *showMenu; //alternative to edgeSwipe to show toggleTable
+@property (nonatomic, weak)IBOutlet UIButton *showSettings;//alternative to edgeSwipe to show settingsView;
+
+@property (nonatomic, strong)NSMutableArray *finalCoords; //sorted list of coords for long-lat reversal. REMOVE FOR FINAL BUILD
+@property (nonatomic, strong)NSMutableArray *cords; //initial list of coors for long-lat reversal. REMOVE FOR FINAL BUILD
+
+@property (nonatomic, weak)IBOutlet UIImageView *rightEdge;//imageView contating UIScreenEdgePanGestureRecognizer for toggleTable
+@property (nonatomic, weak)IBOutlet UIImageView *leftEdge;//imageView contating UIScreenEdgePanGestureRecognizer for settingsView
 
 @end
 
 @implementation ViewController
+
+NSString *preferencesFile; //file path to settings.plist
+float opacity; //save opacity from plist to be assigned throughout main ViewController
+AppDelegate* appDelegate;// uhhh... Johnny showed us this. I don't actually know what it does.
+UIScreenEdgePanGestureRecognizer *leftEdgeSwipe; //UIScreenEdgePanGestureRecognizer used to bring settingsView onto screen
+UIScreenEdgePanGestureRecognizer *rightEdgeSwipe; //UIScreenEdgePanGestureRecognizer used to bring toggleTable onto screen
+UISwipeGestureRecognizer *toggleSwipe; //Swipe gesture to return toggleTable to off screen
+UIPanGestureRecognizer *settingsPan; //Pan gesture to return settingVuew to off screen
+UIColor *textColor; //default text color for tableViewCell when map type == default/standard
+NSArray *defaultOrder; //contains string objects in order of default toggleTable list
+CLLocationManager *locationManager; //needed to access user location from the OS
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     _toggleTable.backgroundColor = [UIColor clearColor];
-    
+
     [_map setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(40.49509, -88.989156), MKCoordinateSpanMake(.1, .1)) animated:YES];
     
     _finalCoords = [[NSMutableArray alloc]init];
     _cords = [[NSMutableArray alloc]init];
+    
+    preferencesFile = [[[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Preferences"] stringByAppendingPathComponent:@"prefs.plist"];
+    appDelegate = [UIApplication sharedApplication].delegate;
+    
+    locationManager = [[CLLocationManager alloc]init];
+    locationManager.delegate = self;
+    [locationManager requestWhenInUseAuthorization];
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
+    leftEdgeSwipe = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeLeftEdge:)];
+    [leftEdgeSwipe setEdges:UIRectEdgeLeft];
+    [leftEdgeSwipe setDelegate:self];
+    [_leftEdge addGestureRecognizer:leftEdgeSwipe];
+    
+    rightEdgeSwipe = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeRightEdge:)];
+    [rightEdgeSwipe setEdges:UIRectEdgeRight];
+    [rightEdgeSwipe setDelegate:self];
+    [_rightEdge addGestureRecognizer:rightEdgeSwipe];
+    
+    settingsPan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handleSettingsPan:)];
+    [settingsPan setDelegate:self];
+    [_settingsView addGestureRecognizer:settingsPan];
+    
+    toggleSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleToggleSwipe:)];
+    [toggleSwipe setDelegate:self];
+    [toggleSwipe setDirection:UISwipeGestureRecognizerDirectionRight];
+    [_toggleTable addGestureRecognizer:toggleSwipe];
+    
+    defaultOrder = [NSArray arrayWithObjects:@"repair", @"parking", @"restrooms", @"park", @"water", @"info", @"trash", @"bench", @"custom", nil];
 
 #pragma mark - Polyline
     
-    NSArray *coordinates = [NSArray arrayWithObjects:@"-88.94470804855509",@"40.55710594190552",@"-88.94467558723221",@"40.55620785360567",@"-88.94467525721058",@"40.55572647298415",@"-88.94467413374777",@"40.55560295956953",@"-88.94477433781123",@"40.55475014563741",@"-88.94479453725155",@"40.55454760419092",@"-88.94481311177151",@"40.55441369321569",@"-88.94482550087557",@"40.55434157466716",@"-88.94489159034727",@"40.55411511574143",@"-88.94492165930264",@"40.55405800040545",@"-88.94496946450799",@"40.55399736007074",@"-88.94503261001071",@"40.55394178513676",@"-88.94508707779562",@"40.55389654940085",@"-88.94512626447065",@"40.55385276699814",@"-88.94515436830602",@"40.55380218108512",@"-88.94516697242803",@"40.55375373590606",@"-88.94517096770672",@"40.5536984741277",@"-88.9451682470859",@"40.5536466790095",@"-88.94516134386109",@"40.55360485621496",@"-88.94514114008878",@"40.55355967275994",@"-88.94505008258291",@"40.55343972350697",@"-88.94473249102282",@"40.55304271144015",@"-88.94468576198585",@"40.55297433682422",@"-88.94465008442994",@"40.55290933480705",@"-88.94462551760087",@"40.55285422416616",@"-88.9446140106899",@"40.55280075996769",@"-88.94460415688035",@"40.55268175310549",@"-88.94458324353063",@"40.55159386340057",@"-88.94456205182252",@"40.55143991931708",@"-88.94455910092837",@"40.55136273527229",@"-88.94456295932355",@"40.55129237739381",@"-88.94457356743698",@"40.55124703080492",@"-88.94459077551521",@"40.55121022703605",@"-88.94461687619203",@"40.55118675748854",@"-88.94465180707101",@"40.55116976029481",@"-88.9447394103606",@"40.55115763100248",@"-88.94520672516617",@"40.55112839446501",@"-88.94667194975497",@"40.55102524077083",@"-88.94762403865357",@"40.55095807960755",@"-88.94822051147227",@"40.55091133170912",@"-88.9482885635923",@"40.55090101932733",@"-88.94834983745791",@"40.5508873118925",@"-88.9484110642091",@"40.55086845803231",@"-88.9485204140654",@"40.550824300907",@"-88.94866043926692",@"40.55076522659459",@"-88.95012474466003",@"40.55009761874927",@"-88.95020136494776",@"40.55006530048429",@"-88.95028013513654",@"40.55004669507231",@"-88.95037870835736",@"40.55002935628251",@"-88.95049713499697",@"40.55001877354878",@"-88.95064646313215",@"40.55001797576562",@"-88.95083527022894",@"40.55003034806497",@"-88.95116073076518",@"40.55008213319367",@"-88.95129247548404",@"40.55010132895909",@"-88.95202676329569",@"40.55022126168152",@"-88.95365749771743",@"40.55046058566076",@"-88.95375634928871",@"40.55047343613624",@"-88.95383531528813",@"40.55047610004282",@"-88.95397137564892",@"40.55047536921701",@"-88.95458301770775",@"40.55039179427077",@"-88.95528205521769",@"40.55027412091312",@"-88.95541126940934",@"40.55023842807347",@"-88.95553804718182",@"40.55018250474754",@"-88.95561443307309",@"40.55012513716321",@"-88.95568624476815",@"40.55005955953897",@"-88.95576212595306",@"40.54997200093424",@"-88.95584185346102",@"40.54981408409432",@"-88.95654193772953",@"40.54837885660514",@"-88.95717357843142",@"40.54715672218588",@"-88.95975027452791",@"40.54714278045934",@"-88.96184835302297",@"40.54714819831322",@"-88.96326415334434",@"40.54715867247864", nil];
-    NSString *lat;
-    NSString *lon;
-    for (int i = 0; i < coordinates.count; i++) {
-        if (i % 2 == 0) {
-            lon = [coordinates objectAtIndex:i];
-        }
-        if (i % 2 == 1) {
-            lat = [coordinates objectAtIndex:i];
-            
-            [_finalCoords addObject:lat];
-            [_finalCoords addObject:lon];
-        }
-    }
-    NSString *result = [_finalCoords componentsJoinedByString:@","];
-    NSLog(@"Done: %@", result);
+//    NSArray *coordinates = [NSArray arrayWithObjects:@"-88.98623263719556",@"40.53174904583609",@"-88.98624136195663",@"40.53188349577464",@"-88.986271272078",@"40.53223158370165",@"-88.9862984412537",@"40.53257522665585",@"-88.98632609037243",@"40.5329219548626",@"-88.98635235582333",@"40.53324192826457",@"-88.98637028596816",@"40.53346759344704",@"-88.98639860373092",@"40.53381363158238",@"-88.98642301460242",@"40.5341277825274",@"-88.98646037654245",@"40.53452523600772",@"-88.986484413239",@"40.53482394905978",@"-88.98651434451543",@"40.53519708366104",@"-88.98654051367092",@"40.53553009561921",@"-88.98657124502883",@"40.5358929323342",@"-88.98660212160932",@"40.5362475335557",@"-88.98662924438057",@"40.53658602980074",@"-88.98665823775494",@"40.53690873238192",@"-88.98668842412381",@"40.53726162186955",@"-88.98671771143921",@"40.53761451641149",@"-88.98674528998035",@"40.53793036471421",nil];
+//    NSString *lat;
+//    NSString *lon;
+//    for (int i = 0; i < coordinates.count; i++) {
+//        if (i % 2 == 0) {
+//            lon = [coordinates objectAtIndex:i];
+//        }
+//        if (i % 2 == 1) {
+//            lat = [coordinates objectAtIndex:i];
+//            
+//            [_finalCoords addObject:lat];
+//            [_finalCoords addObject:lon];
+//        }
+//    }
+//    NSString *result = [_finalCoords componentsJoinedByString:@","];
+//    NSLog(@"Done: %@", result);
+//
+//    float latitude = 0.0;
+//    float longitude = 0.0;
+//    
+//    for (int i = 0; i < _finalCoords.count; i++) {
+//        
+//        if (i % 2 == 0) {
+//            latitude = [[coordinates objectAtIndex:i]floatValue];
+//        }
+//        if (i % 2 == 1) {
+//            longitude = [[coordinates objectAtIndex:i]floatValue];
+//            
+//            CLLocation *temp = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+//            [_cords addObject:temp];
+//        }
+//    }
+}
 
-    float latitude = 0.0;
-    float longitude = 0.0;
+- (void)viewWillAppear:(BOOL)animated {
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
-    for (int i = 0; i < _finalCoords.count; i++) {
-        
-        if (i % 2 == 0) {
-            latitude = [[coordinates objectAtIndex:i]floatValue];
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    if ([fileManager fileExistsAtPath:preferencesFile]) {
+        int opac = [[appDelegate preferenceForKey:@"OPACITY"]intValue];
+        opacity = (float)opac/100.00;
+        int mapType = [[appDelegate preferenceForKey:@"MAP_TYPE"]intValue];
+        switch (mapType) {
+            case 0:
+                [_map setMapType:MKMapTypeStandard];
+                textColor = [UIColor colorWithWhite:0.333 alpha:1.000];
+                break;
+                
+            case 1:
+                [_map setMapType:MKMapTypeHybrid];
+                textColor = [UIColor whiteColor];
+                break;
+                
+            case 2:
+                [_map setMapType:MKMapTypeSatellite];
+                textColor = [UIColor whiteColor];
+                break;
+                
+            default:
+                [_map setMapType:MKMapTypeStandard];
+                textColor = [UIColor colorWithWhite:0.333 alpha:1.000];
+                break;
         }
-        if (i % 2 == 1) {
-            longitude = [[coordinates objectAtIndex:i]floatValue];
-            
-            CLLocation *temp = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-            [_cords addObject:temp];
-        }
+    }else{
+        [appDelegate setPreference:[NSNumber numberWithInt:70] forKey:@"OPACITY"];
+        opacity = 0.7;
+        [appDelegate setPreference:[NSNumber numberWithInt:0] forKey:@"MAP_TYPE"];
     }
+    
+    [_toggleTable reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,10 +181,10 @@
 #pragma mark - Touches
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch *newtouch = [touches anyObject];
-    CGPoint newPoint = [newtouch locationInView:newtouch.window];
-    NSLog(@"Touch at %@",NSStringFromCGPoint(newPoint));
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    UITouch *newtouch = [touches anyObject];
+//    CGPoint newPoint = [newtouch locationInView:newtouch.window];
+   // NSLog(@"Touch at %@",NSStringFromCGPoint(newPoint));
 //
 //    if (newtouch.view == _toggleTable) {
 //        [UIView animateWithDuration:0.3 animations:^{
@@ -94,7 +193,7 @@
 //            _toggleTable.frame = frame;
 //        }];
 //    }
-}
+//}
 //
 //- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
 //    UITouch *newtouch = [touches anyObject];
@@ -110,186 +209,53 @@
 
 #pragma mark - Tableview Delegate
 
+//returns number of rows for toggleTable
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 9;
+    return defaultOrder.count;
 }
 
+//creates and populates custom cells in toggleTable with title, graphic, and selected background image.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 4) {
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
-             [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-            cell = _customCell;
-            _customCell = nil;
-        }
-        cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"water";
-        cell.cellImage.image = [UIImage imageNamed: @"Water.png"];
-        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"WaterSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
-        
-        cell.selectedBackgroundView = backgroundView;
-
-        return cell;
-    }
-    if (indexPath.row == 1) {
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
+    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+        if(!cell){
             [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
             cell = _customCell;
             _customCell = nil;
-        }
+            }
+    NSString *title = [defaultOrder objectAtIndex:indexPath.row];
         cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"parking";
-        cell.cellImage.image = [UIImage imageNamed: @"Parking.png"];
+        cell.cellLabel.text = title;//@"water";
+        cell.cellLabel.textColor = textColor;
+        cell.cellImage.image = [UIImage imageNamed: [NSString stringWithFormat:@"%@.png",title]];
         UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"ParkingSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
+        UIImage *backgroundImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@SelectSolid.png",title]];
+        backgroundView.clipsToBounds = YES;
+        backgroundView.image = [backgroundImage imageByApplyingAlpha:opacity];
         
         cell.selectedBackgroundView = backgroundView;
+        [cell.selectedBackgroundView setAlpha:opacity];
+        cell.clipsToBounds = YES;
         
         return cell;
-    }
-    if (indexPath.row == 0) {
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
-            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-            cell = _customCell;
-            _customCell = nil;
-        }
-        cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"repair";
-        cell.cellImage.image = [UIImage imageNamed: @"Repairs.png"];
-        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"RepairSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
-        
-        cell.selectedBackgroundView = backgroundView;
-        
-        return cell;
-    }
-    if (indexPath.row == 2) {
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
-            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-            cell = _customCell;
-            _customCell = nil;
-        }
-        cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"shops";
-        cell.cellImage.image = [UIImage imageNamed: @"Shops.png"];
-        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"ShopSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
-        
-        cell.selectedBackgroundView = backgroundView;
-        
-        return cell;
-    }
-    if (indexPath.row == 3) {
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
-            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-            cell = _customCell;
-            _customCell = nil;
-        }
-        cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"parks";
-        cell.cellImage.image = [UIImage imageNamed: @"Park.png"];
-        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"ParkSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
-        
-        cell.selectedBackgroundView = backgroundView;
-        
-        return cell;
-    }
-    if (indexPath.row == 5) {
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
-            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-            cell = _customCell;
-            _customCell = nil;
-        }
-        cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"info";
-        cell.cellImage.image = [UIImage imageNamed: @"Info.png"];
-        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"InfoSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
-        
-        cell.selectedBackgroundView = backgroundView;
-        
-        return cell;
-    }
-    if (indexPath.row == 7) {
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
-            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-            cell = _customCell;
-            _customCell = nil;
-        }
-        cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"bench";
-        cell.cellImage.image = [UIImage imageNamed: @"Bench.png"];
-        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"BenchSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
-        
-        cell.selectedBackgroundView = backgroundView;
-        
-        return cell;
-    }
-    if (indexPath.row == 6) {
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
-            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-            cell = _customCell;
-            _customCell = nil;
-        }
-        cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"trash";
-        cell.cellImage.image = [UIImage imageNamed: @"Trash.png"];
-        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"TrashSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
-        
-        cell.selectedBackgroundView = backgroundView;
-        
-        return cell;
-    }else{
-        CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-        if (!cell) {
-            [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-            cell = _customCell;
-            _customCell = nil;
-        }
-        cell.backgroundColor = [UIColor clearColor];
-        cell.cellLabel.text = @"custom";
-        cell.cellImage.image = [UIImage imageNamed: @"Add.png"];
-        UIImageView *backgroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 100)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"AddSelectTransparent.png"];
-        backgroundView.image = backgroundImage;
-        
-        cell.selectedBackgroundView = backgroundView;
-        
-        return cell;
-    }
-    
 }
 
+//returns height for rows in toggleTable. All rows are 100 points high
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;
 }
 
 #pragma mark - IBActions
 
+//alternative method to display toggleTable and hide settingsView if necessary
 - (IBAction)showToggles{
     int origin;
+    int buttonOrigin = 5;
+    int settings = -320;
+    UIColor *buttonColor;
     
     if (_toggleTable.frame.origin.x > 0) {
         origin = 0;
+        buttonColor = nil;
     }else{
         origin = 320;
     }
@@ -298,7 +264,141 @@
         CGRect frame = _toggleTable.frame;
         frame.origin.x = origin;
         _toggleTable.frame = frame;
+        CGRect btnFrmO = _showMenu.frame;
+        btnFrmO.origin.x = buttonOrigin;
+        _showMenu.frame = btnFrmO;
+        CGRect btnFrm1 = _showSettings.frame;
+        btnFrm1.origin.x = buttonOrigin;
+        _showSettings.frame = btnFrm1;
+        CGRect togFrame = _settingsView.frame;
+        togFrame.origin.x = settings;
+        _settingsView.frame = togFrame;
+        _showSettings.tintColor = buttonColor;
+        _showMenu.tintColor = buttonColor;
+
     }];
+}
+
+//alternative method to display settingsView and hide toggleTable if necessary
+- (IBAction)showSettingsView{
+    int origin;
+    int buttonOrigin;
+    int toggleTable = 320;
+    UIColor *buttonColor;
+    
+    if (_settingsView.frame.origin.x < 0) {
+        origin = 0;
+        buttonOrigin = 270;
+        buttonColor = [UIColor whiteColor];
+    }else{
+        origin = -320;
+        buttonOrigin = 5;
+        buttonColor = nil;
+    }
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = _settingsView.frame;
+        frame.origin.x = origin;
+        _settingsView.frame = frame;
+        CGRect btnFrmO = _showMenu.frame;
+        btnFrmO.origin.x = buttonOrigin;
+        _showMenu.frame = btnFrmO;
+        CGRect btnFrm1 = _showSettings.frame;
+        btnFrm1.origin.x = buttonOrigin;
+        _showSettings.frame = btnFrm1;
+        CGRect togFrame = _toggleTable.frame;
+        togFrame.origin.x = toggleTable;
+        _toggleTable.frame = togFrame;
+        _showSettings.tintColor = buttonColor;
+        _showMenu.tintColor = buttonColor;
+    }];
+}
+
+- (IBAction)toggleUserLocation:(id)sender{
+    if (_locationToggle.isOn) {
+        [locationManager startUpdatingLocation];
+        _map.showsUserLocation = YES;
+    }if (!_locationToggle.isOn) {
+        [locationManager stopUpdatingLocation];
+        _map.showsUserLocation = NO;
+    }
+}
+
+- (IBAction)toggleSolidGraphics{
+    
+}
+
+//returns map to default zoom and region.
+- (IBAction)setMapHome:(id)sender {
+    [_map setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(40.49509, -88.989156), MKCoordinateSpanMake(.1, .1)) animated:YES];
+}
+
+#pragma mark - Gesture Handling
+
+//handling for UIScreenEdgePanGestureRecognizer on leftEdge image view. Allows user to "pull" settingsView onto screen. Animates settingsView to corrent location at end of gesture.
+- (void)handleSwipeLeftEdge:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer{
+  //  NSLog(@"Swiped!");
+    CGPoint translation = [gestureRecognizer translationInView:self.view];
+    CGRect frame = _settingsView.frame;
+    frame.origin = CGPointMake(frame.origin.x + translation.x, 0);
+    _settingsView.frame = frame;
+    [gestureRecognizer setTranslation:CGPointMake(0, 0) inView:self.view];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect frame = _settingsView.frame;
+            frame.origin.x = 0;
+            _settingsView.frame= frame;
+        }];
+    }
+   // NSLog(@"X: %f, Y: %f)", translation.x, translation.y);
+    
+}
+
+//handling for UIScreenEdgePanGestureRecognizer on rightEdge image view. Allows user to "pull" toggleTable onto screen. Animates toggleTable to corrent location at end of gesture.
+- (void)handleSwipeRightEdge:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer{
+   // NSLog(@"Swiped!");
+    CGPoint translation = [gestureRecognizer translationInView:self.view];
+    CGRect frame = _toggleTable.frame;
+    frame.origin = CGPointMake(frame.origin.x + translation.x, 0);
+    _toggleTable.frame = frame;
+    [gestureRecognizer setTranslation:CGPointMake(0, 0) inView:self.view];
+
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect frame = _toggleTable.frame;
+            frame.origin.x = 0;
+            _toggleTable.frame= frame;
+        }];
+    }
+  //  NSLog(@"X: %f, Y: %f)", translation.x, translation.y);
+}
+
+//handling for pan gesture on settingsView. Allows settingsView to move with users touch, then animates off screen to the proper location when gesture ends.
+- (void)handleSettingsPan:(UIPanGestureRecognizer *)gestureRecognizer{
+    CGPoint translation = [gestureRecognizer translationInView:self.view];
+    _settingsView.center = CGPointMake(gestureRecognizer.view.center.x + translation.x,
+                                        gestureRecognizer.view.center.y);
+    [gestureRecognizer setTranslation:CGPointMake(0, 0) inView:self.view];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect frame = _settingsView.frame;
+            frame.origin.x = -320;
+            _settingsView.frame = frame;
+        }];
+    }
+}
+
+//handling for swipe gesture on toggleTable. Hides toggle table on swipe to right then animates to proper off screen location.
+- (void)handleToggleSwipe:(UISwipeGestureRecognizer *)gestureRecognizer{
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect frame = _toggleTable.frame;
+            frame.origin.x = 320;
+            _toggleTable.frame = frame;
+        }];
+    }
 }
 
 @end

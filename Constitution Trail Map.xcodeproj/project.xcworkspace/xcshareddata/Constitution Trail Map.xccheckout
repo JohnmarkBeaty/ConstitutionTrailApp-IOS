@@ -10,29 +10,29 @@
 	<string>Constitution Trail Map</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B2B36A39-F694-424E-BD40-C165D35AD56B</key>
+		<key>DF4E42159A9C801EF126997B214F216E7693F367</key>
 		<string>https://github.com/ekoranek12/ConstitutionTrailApp-IOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Constitution Trail Map.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B2B36A39-F694-424E-BD40-C165D35AD56B</key>
+		<key>DF4E42159A9C801EF126997B214F216E7693F367</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ekoranek12/ConstitutionTrailApp-IOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B2B36A39-F694-424E-BD40-C165D35AD56B</string>
+	<string>DF4E42159A9C801EF126997B214F216E7693F367</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B2B36A39-F694-424E-BD40-C165D35AD56B</string>
+			<string>DF4E42159A9C801EF126997B214F216E7693F367</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ConstitutionTrailApp-IOS</string>
 		</dict>

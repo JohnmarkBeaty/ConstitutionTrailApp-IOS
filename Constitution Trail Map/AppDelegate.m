@@ -8,11 +8,33 @@
 
 #import "AppDelegate.h"
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    @private
+        NSMutableDictionary *preferences;
+        NSString *preferencesFile;
+}
+
+#pragma mark - Preferences
+
+-(void)setPreference:(id)preference forKey:(NSString *)key {
+    [preferences setObject:preference forKey:key];
+    [preferences writeToFile:preferencesFile atomically:YES];
+}
+
+-(id)preferenceForKey:(NSString *)key{
+    return [preferences valueForKey:key];
+}
+
+#pragma mark - App Delegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    preferencesFile = [[[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Preferences"] stringByAppendingPathComponent:@"prefs.plist"];
+    preferences = [NSMutableDictionary dictionaryWithContentsOfFile:preferencesFile];
+    
+    if(!preferences) {
+        preferences = [[NSMutableDictionary alloc] init];
+    }
     return YES;
 }
 							
